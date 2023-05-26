@@ -30,6 +30,7 @@ export type TScenarioModelData = {
     featuredArtist?: boolean
     artistInfo?: TArtistInfo
     placeholderInputText?: string
+    featuredImage?: string
 }
 
 export type TScenarioModelIdsToData = {
@@ -61,6 +62,8 @@ export const scenarioModelData: TScenarioModelIdsToData = {
             "clhsmt2mj004luggpmcyj9hsg",
             "clhsmvr7h0053uggpwv6lv07i",
         ],
+        featuredImage:
+            "https://jpxwqgklwwytoznbpbmn.supabase.co/storage/v1/object/public/pixelated/2582c090-2a91-4112-87d8-dd8ada83ba8b.png",
     },
     // spriteGenerator: {
     //     slug: "sprite-generator",

@@ -5,6 +5,7 @@ import { SamplingStepSelector } from "../sampling-step-selector"
 import { Badge } from "../ui/badge"
 import { Textarea } from "../ui/textarea"
 import { GenerationSet, IGenerationSet } from "./generation-set"
+import { StyleRadioGroup } from "./style-radio-group"
 import { Icons } from "@/components/icons"
 import { ImageInfluencerSlider } from "@/components/image-influence-slider"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
@@ -292,6 +293,7 @@ export function GenerationForm({
                                 <CardContent>
                                     <div className="grid gap-8">
                                         <div>
+                                            <StyleRadioGroup />
                                             <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-4 w-full">
                                                 <div className="w-full lg:col-span-2">
                                                     <Label htmlFor="name">
