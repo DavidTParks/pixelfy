@@ -1,4 +1,4 @@
-import { MjmlColumn, MjmlSection, MjmlText } from "mjml-react"
+import { MjmlColumn, MjmlSection, MjmlText } from "@faire/mjml-react"
 
 export default function Footer({
     unsubscribe,

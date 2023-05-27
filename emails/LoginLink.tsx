@@ -11,7 +11,7 @@ import {
     MjmlSection,
     MjmlText,
     MjmlWrapper,
-} from "mjml-react"
+} from "@faire/mjml-react"
 
 export default function LoginLink({ url }: { url: string }): JSX.Element {
     return (

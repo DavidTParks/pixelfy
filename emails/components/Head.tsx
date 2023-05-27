@@ -1,4 +1,4 @@
-import React from "react"
+import { black, blue, grayDark, grayLight, purple } from "./theme"
 import {
     MjmlAll,
     MjmlAttributes,
@@ -6,8 +6,8 @@ import {
     MjmlHead,
     MjmlRaw,
     MjmlStyle,
-} from "mjml-react"
-import { black, blue, grayDark, grayLight, purple } from "./theme"
+} from "@faire/mjml-react"
+import React from "react"
 
 export default function Head(): JSX.Element {
     return (

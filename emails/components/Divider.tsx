@@ -1,5 +1,5 @@
-import { MjmlDivider } from "mjml-react"
 import { grayDark, grayLight } from "./theme"
+import { MjmlDivider } from "@faire/mjml-react"
 
 export default function Divider({
     bottomPadding,
