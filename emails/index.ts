@@ -32,3 +32,5 @@ export const sendMarketingMail = buildSendMail({
     defaultFrom: "David from Pixelfy <pixelfy@pixelfy.ai>",
     configPath: "./mailing.config.json",
 })
+
+export default sendMail

@@ -25,7 +25,7 @@
         "@editorjs/list": "^1.8.0",
         "@editorjs/paragraph": "^2.9.0",
         "@editorjs/table": "^2.2.1",
-        "@faire/mjml-react": "^2.0.8",
+        "@faire/mjml-react": "^3.3.0",
         "@hookform/resolvers": "^3.1.0",
         "@next-auth/prisma-adapter": "^1.0.6",
         "@prisma/client": "^4.14.1",
