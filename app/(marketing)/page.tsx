@@ -40,20 +40,25 @@ export default async function IndexPage() {
             imageAlt: "Image showing a cozy cabin with snow",
         },
         {
-            image: "/warhammer.png",
-            title: "Fantasy RPG",
-            prompts: ["Warhammer 40k", "space marine", "galactic"],
-            imageAlt: "Image showing a warhammer character portrait pixelated",
+            image: "/helmet.png",
+            title: "Helmets & Armor",
+            prompts: [
+                "warlock helmet",
+                "game asset",
+                "32x32 pixel art",
+                "sRGB",
+            ],
+            imageAlt: "Image showing a warlock helmet pixelated",
         },
         {
             image: "/examples/skillArt/frostbolt4.png",
-            title: "32x32 Skill Art",
+            title: "Skill Art",
             prompts: ["Frostbolt", "frigid air", "shades of blue and white"],
             imageAlt: "Image showing a frostbolt skill art pixelated",
         },
         {
             image: "/energy.png",
-            title: "16x16 Pixel Portraits",
+            title: "Pixel Character Portraits",
             prompts: [
                 "otherworldly avatar",
                 "glowing eyes",
@@ -158,10 +163,10 @@ export default async function IndexPage() {
 
                 <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center mt-8">
                     <h2 className="font-heading text-xl leading-[1.1] sm:text-xl md:text-4xl my-4">
-                        And many more
+                        And many more styles
                     </h2>
                     <Link href="/examples/pixel-background">
-                        <Button>View more examples</Button>
+                        <Button>View more styles with examples</Button>
                     </Link>
                 </div>
             </section>

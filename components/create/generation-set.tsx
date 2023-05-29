@@ -18,6 +18,7 @@ import {
 import { Progress } from "@/components/ui/progress"
 import { toast } from "@/components/ui/use-toast"
 import { normalizedGeneratorMap } from "@/lib/generators"
+import { cn } from "@/lib/utils"
 import { ScenarioInferenceProgressResponse } from "@/types/scenario"
 import { GENERATIONSATISFCATION, OutputImage } from "@prisma/client"
 import { AnimatePresence, motion } from "framer-motion"
@@ -244,118 +245,132 @@ export const GenerationSet = ({
                 )}
             </CardContent>
 
-            {images?.length > 0 && !feedbackSaved && (
-                <CardFooter>
-                    <motion.div
-                        key="feedback"
-                        initial="collapsed"
-                        animate="open"
-                        exit="collapsed"
-                        variants={{
-                            open: { opacity: 1, height: "auto" },
-                            collapsed: { opacity: 0, height: 0 },
-                        }}
-                        transition={{
-                            duration: 0.8,
-                            ease: [0.04, 0.62, 0.23, 0.98],
-                        }}
-                        className="flex items-center justify-center flex-col w-full gap-2"
-                    >
-                        <p className="mr-2 text-sm text-muted-foreground">
-                            Are you happy with this generation?
-                        </p>
-                        <div className="flex items-center gap-2">
-                            <Button
-                                disabled={feedbackSaving}
-                                onClick={() => {
-                                    setSatisfactionSelected(
-                                        GENERATIONSATISFCATION.UNSATISFIED
-                                    )
-                                    updateGenerationFeedback({
-                                        satisfaction:
-                                            GENERATIONSATISFCATION.UNSATISFIED,
-                                    })
-                                }}
-                                size="sm"
-                                variant="outline"
-                            >
-                                <Icons.thumbsDown className="h-4 w-4" />
-                            </Button>
-                            <Button
-                                disabled={feedbackSaving}
-                                onClick={() => {
-                                    setSatisfactionSelected(
-                                        GENERATIONSATISFCATION.SATISFIED
-                                    )
-                                    updateGenerationFeedback({
-                                        satisfaction:
-                                            GENERATIONSATISFCATION.SATISFIED,
-                                    })
-                                }}
-                                size="sm"
-                                variant="outline"
-                            >
-                                <Icons.thumbsUp className="h-4 w-4" />
-                            </Button>
-                        </div>
-                        <AnimatePresence initial={false}>
-                            {satisfactionSelected === "UNSATISFIED" && (
-                                <motion.div
-                                    key="content"
-                                    initial="collapsed"
-                                    animate="open"
-                                    exit="collapsed"
-                                    className="w-full"
-                                    variants={{
-                                        open: { opacity: 1, height: "auto" },
-                                        collapsed: { opacity: 0, height: 0 },
+            <CardFooter
+                className={cn(
+                    images?.length > 0 && !feedbackSaved ? "pb-6" : "pb-0"
+                )}
+            >
+                <AnimatePresence initial={false}>
+                    {images?.length > 0 && !feedbackSaved && (
+                        <motion.div
+                            key="feedback"
+                            initial="collapsed"
+                            animate="open"
+                            exit="collapsed"
+                            variants={{
+                                open: { opacity: 1, height: "auto" },
+                                collapsed: { opacity: 0, height: 0 },
+                            }}
+                            transition={{
+                                duration: 0.8,
+                                ease: [0.04, 0.62, 0.23, 0.98],
+                            }}
+                            className="flex items-center justify-center flex-col w-full gap-2"
+                        >
+                            <p className="mr-2 text-sm text-muted-foreground">
+                                Are you happy with this generation?
+                            </p>
+                            <div className="flex items-center gap-2">
+                                <Button
+                                    disabled={feedbackSaving}
+                                    onClick={() => {
+                                        setSatisfactionSelected(
+                                            GENERATIONSATISFCATION.UNSATISFIED
+                                        )
+                                        updateGenerationFeedback({
+                                            satisfaction:
+                                                GENERATIONSATISFCATION.UNSATISFIED,
+                                        })
                                     }}
-                                    transition={{
-                                        duration: 0.8,
-                                        ease: [0.04, 0.62, 0.23, 0.98],
-                                    }}
+                                    size="sm"
+                                    variant="outline"
                                 >
-                                    <div className="grid gap-1 mt-2 relative">
-                                        <Label htmlFor="name">Feedback</Label>
+                                    <Icons.thumbsDown className="h-4 w-4" />
+                                </Button>
+                                <Button
+                                    disabled={feedbackSaving}
+                                    onClick={() => {
+                                        setSatisfactionSelected(
+                                            GENERATIONSATISFCATION.SATISFIED
+                                        )
+                                        updateGenerationFeedback({
+                                            satisfaction:
+                                                GENERATIONSATISFCATION.SATISFIED,
+                                        })
+                                    }}
+                                    size="sm"
+                                    variant="outline"
+                                >
+                                    <Icons.thumbsUp className="h-4 w-4" />
+                                </Button>
+                            </div>
+                            <AnimatePresence initial={false}>
+                                {satisfactionSelected === "UNSATISFIED" && (
+                                    <motion.div
+                                        key="content"
+                                        initial="collapsed"
+                                        animate="open"
+                                        exit="collapsed"
+                                        className="w-full"
+                                        variants={{
+                                            open: {
+                                                opacity: 1,
+                                                height: "auto",
+                                            },
+                                            collapsed: {
+                                                opacity: 0,
+                                                height: 0,
+                                            },
+                                        }}
+                                        transition={{
+                                            duration: 0.8,
+                                            ease: [0.04, 0.62, 0.23, 0.98],
+                                        }}
+                                    >
+                                        <div className="grid gap-1 mt-2 relative">
+                                            <Label htmlFor="name">
+                                                Feedback
+                                            </Label>
 
-                                        <Textarea
-                                            value={feedback}
-                                            onChange={(e) =>
-                                                setFeedback(e.target.value)
-                                            }
-                                            placeholder="We'd love to hear why this generation
+                                            <Textarea
+                                                value={feedback}
+                                                onChange={(e) =>
+                                                    setFeedback(e.target.value)
+                                                }
+                                                placeholder="We'd love to hear why this generation
                                             wasn't up to par. We'll credit your
                                             account back a credit up to 3 times
                                             if you provide some context to why
                                             this wasn't great. Your feedback
                                             will help us make Pixelfy better!"
-                                            maxLength={500}
-                                        />
-                                    </div>
-                                    <Button
-                                        disabled={
-                                            feedbackWithCommentSaving ||
-                                            feedback?.length === 0
-                                        }
-                                        onClick={async () =>
-                                            await updateGenerationFeedback({
-                                                satisfaction:
-                                                    satisfactionSelected,
-                                            })
-                                        }
-                                        className="mt-4"
-                                    >
-                                        {feedbackWithCommentSaving && (
-                                            <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
-                                        )}
-                                        Send feedback
-                                    </Button>
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
-                    </motion.div>
-                </CardFooter>
-            )}
+                                                maxLength={500}
+                                            />
+                                        </div>
+                                        <Button
+                                            disabled={
+                                                feedbackWithCommentSaving ||
+                                                feedback?.length === 0
+                                            }
+                                            onClick={async () =>
+                                                await updateGenerationFeedback({
+                                                    satisfaction:
+                                                        satisfactionSelected,
+                                                })
+                                            }
+                                            className="mt-4"
+                                        >
+                                            {feedbackWithCommentSaving && (
+                                                <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
+                                            )}
+                                            Send feedback
+                                        </Button>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </CardFooter>
         </Card>
     )
 }

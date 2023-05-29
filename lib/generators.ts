@@ -9,6 +9,8 @@ export type TScenarioModels =
     | "yoHokki"
     | "assetDiffusion"
     | "pixelBackground"
+    | "32x32armor"
+    | "32x32helmet"
 // | "spriteGenerator"
 
 type TArtistInfo = {
@@ -60,6 +62,57 @@ export const scenarioModelData: TScenarioModelIdsToData = {
             "cli5j5qqd003fugoz3mcfa6ot",
             "cli5jhfli005rugoz8fy13624",
             "cli5jhrly0068ugoz1068pzu1",
+        ],
+    },
+    "32x32armor": {
+        id: "FFzmMGlqQM6pKmmHavVhvg",
+        slug: "32x32armor",
+        name: "32x32 Armor",
+        description: "32x32 Armor",
+        supplementalPrompt: "",
+        sizeLocked: true,
+        sizeLockedValue: 32,
+        disabledSizes: ["32"],
+        placeholderInputText:
+            "Ex. Enter a prompt for armor you would like to see",
+        examples: [
+            "cli9a4lpr0014ugnuong6ayhz",
+            "cli9a4szp001lugnubxn6fot2",
+            "cli9a4sm2001fugnug4sfmlxw",
+            "cli9acnr9003eugnuax8nagd0",
+            "cli9a7csh002hugnuejzq3444",
+            "cli9as8yo0002ugu4030y9ckv",
+            "cli9a4lpr0017ugnuaqe045z0",
+            "cli9ai8u00046ugnu1lp8e074",
+            "cli9b4a3v000ougu4ef4z7jc0",
+            "cli9b6fke0018ugu4uttn4eff",
+        ],
+    },
+    "32x32helmet": {
+        id: "K5cr3iuHT1-pG3yAdNSkWA",
+        slug: "32x32helmets",
+        name: "32x32 Helmets",
+        description: "32x32 Helmets",
+        supplementalPrompt: "",
+        sizeLocked: true,
+        sizeLockedValue: 32,
+        disabledSizes: ["32"],
+        placeholderInputText:
+            "Ex. Enter a prompt for helmets you would like to see",
+        examples: [
+            "cli9bf9qz0008ugnvzbttuo60",
+            "cli9bf9r0000augnvw1xvmqh7",
+            "cli9bf9r00009ugnvomj4irkj",
+            "cli9bfiwy000gugnvl3hjii3i",
+            "cli9bfiwy000hugnvk2k5urhh",
+            "cli9bhyxx0017ugnvi5o62wwu",
+            "cli9biaot001fugnvaif3y0rf",
+            "cli9biddm001ougnv3ck0sq6i",
+            "cli9bk5fy001yugnvmd0e7s6w",
+            "cli9bnzqt0040ugnv0xjwehjb",
+            "cli9blovl002gugnvssl6y17e",
+            "cli9bnzj5003fugnvylwwtazv",
+            "cli9bnzj6003nugnvbeoi7dwt",
         ],
     },
     assetDiffusion: {
@@ -270,6 +323,8 @@ export const scenarioGenerators: TScenarioModelsToIds = {
     yoHokki: "Q36HbYy1T2WdsjkfQp3MoA",
     assetDiffusion: "VklJ8PLtTpC_8z2p6fk2lg",
     pixelBackground: "HTee5KEsSaSQt1JXmqctcQ",
+    "32x32armor": "FFzmMGlqQM6pKmmHavVhvg",
+    "32x32helmet": "K5cr3iuHT1-pG3yAdNSkWA",
     // spriteGenerator: "bBo4wjNsRPiBvVT1LR5cjQ",
 }
 
@@ -287,6 +342,8 @@ export const normalizedGeneratorMap = {
     bBo4wjNsRPiBvVT1LR5cjQ: "32x32 Sprites",
     VklJ8PLtTpC_8z2p6fk2lg: "Asset Diffusion",
     HTee5KEsSaSQt1JXmqctcQ: "Pixel Background",
+    FFzmMGlqQM6pKmmHavVhvg: "32x32 armor",
+    "K5cr3iuHT1-pG3yAdNSkWA": "32x32 Helmets",
 }
 
 export const supplementalPromptMap = {
@@ -303,6 +360,8 @@ export const supplementalPromptMap = {
         " , 32x32 pixel art, sRGB, close up, full body, game asset, centered in frame",
     VklJ8PLtTpC_8z2p6fk2lg: ", pixel art",
     HTee5KEsSaSQt1JXmqctcQ: ", sRGB, pixel art, background, landscape",
+    FFzmMGlqQM6pKmmHavVhvg: ", 32x32 pixel art, game asset, armor",
+    "K5cr3iuHT1-pG3yAdNSkWA": ", 32x32 pixel art, game asset, helmet",
 }
 
 export const sizeLockedGenerators = [
@@ -310,12 +369,16 @@ export const sizeLockedGenerators = [
     // scenarioGenerators.shields,
     scenarioGenerators.pixelPortrait,
     scenarioGenerators.skillArt,
+    scenarioGenerators["32x32armor"],
+    scenarioGenerators["32x32helmet"],
     // scenarioGenerators.spriteGenerator,
 ]
 
 export const sizeLockedGeneratorsSizeValue = {
     [scenarioGenerators.pixelPortrait]: 32,
     [scenarioGenerators.skillArt]: 16,
+    [scenarioGenerators["32x32armor"]]: 16,
+    [scenarioGenerators["32x32helmet"]]: 16,
     // [scenarioGenerators.spriteGenerator]: 16,
     // [scenarioGenerators["16x16Icons"]]: 32,
     // [scenarioGenerators.shields]: 16,
