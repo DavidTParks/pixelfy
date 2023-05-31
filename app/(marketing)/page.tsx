@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/card"
 import { siteConfig } from "@/config/site"
 import { db } from "@/lib/db"
-import { cn, pixelateImage } from "@/lib/utils"
+import { cn } from "@/lib/utils"
 import { FileInput, FileMinus, Save, SlidersHorizontal } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -40,14 +40,9 @@ export default async function IndexPage() {
             imageAlt: "Image showing a cozy cabin with snow",
         },
         {
-            image: "/helmet.png",
-            title: "Helmets & Armor",
-            prompts: [
-                "warlock helmet",
-                "game asset",
-                "32x32 pixel art",
-                "sRGB",
-            ],
+            image: "/dragon.png",
+            title: "Fantasy RPG",
+            prompts: ["fiery dragon", "crimson sky", "flame breath"],
             imageAlt: "Image showing a warlock helmet pixelated",
         },
         {
