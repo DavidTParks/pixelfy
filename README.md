@@ -4,13 +4,14 @@
 </a>
 
 <p align="center">
+  <strong>⚠️ This project has been shut down and is no longer actively maintained.</strong>
+</p>
+
+<p align="center">
 Generate high-quality pixel art with AI
 </p>
 
 <p align="center">
-  <a href="https://twitter.com/pixelfydotai">
-    <img src="https://img.shields.io/twitter/follow/pixelfydotai?style=flat&label=pixelfydotai&logo=twitter&color=0bf&logoColor=fff" alt="Twitter" />
-  </a>
   <a href="https://github.com/davidtparks/pixelfy/blob/main/LICENSE.md">
     <img src="https://img.shields.io/github/license/davidtparks/pixelfy?label=license&logo=github&color=f80&logoColor=fff" alt="License" />
   </a>
@@ -19,13 +20,17 @@ Generate high-quality pixel art with AI
 <p align="center">
   <a href="#introduction"><strong>Introduction</strong></a> ·
   <a href="#tech-stack"><strong>Tech Stack</strong></a> ·
-  <a href="#contributing"><strong>Contributing</strong></a>
+  <a href="#acknowledgments"><strong>Acknowledgments</strong></a>
 </p>
 <br/>
 
 ## Introduction
 
-Pixelfy is an open-source application that uses AI to generate stunning pixel art images for your creative projects. Your limit is your imagination. Built with [Next 13 app dir](http://beta.nextjs.org), and [Planetscale MySQL](https://planetscale.com/).
+> **Note:** Pixelfy has been shut down. The hosted service is no longer available, but the code remains open source for educational purposes and reference.
+
+Pixelfy was an open-source application that used AI to generate stunning pixel art images for creative projects. Built with [Next 13 app dir](http://beta.nextjs.org), and [Planetscale MySQL](https://planetscale.com/).
+
+Thank you to everyone who used and supported the project!
 
 ## Tech Stack
 
@@ -51,12 +56,9 @@ This project would not have been possible without the amazing work from:
 -   [Hassan El Mghari](https://twitter.com/nutlope) for his work on [RoomGPT](https://www.roomgpt.io/) which was really helpful in learning how to query ChatGPT + AI models in Next 13!
 -   [Scenario](https://www.scenario.com/) Scenario is a platform that provides some great public generators, as well as the ability to create new generators using AI for images. Pixelfys APIs interact directly with Scenario and this project would not be possible without them!
 
-## Contributing
+## Contributors
 
-We love our contributors! Here's how you can contribute:
-
--   [Open an issue](https://github.com/davidtparks/pixelfy/issues) if you believe you've encountered a bug.
--   Make a [pull request](https://github.com/davidtparks/pixelfy/pull) to add new features/make quality-of-life improvements/fix bugs.
+Thank you to everyone who contributed to Pixelfy!
 
 <a href="https://github.com/davidtparks/pixelfy/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=davidtparks/pixelfy" />

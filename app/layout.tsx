@@ -92,13 +92,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
                     defaultTheme="system"
                     enableSystem
                 >
-                    {/* <div className="w-full flex justify-center items-center py-2 px-4 text-center bg-primary-foreground">
-                        <span className="text-sm">
-                            🎉 Limited time Memorial Day special! Enter code{" "}
-                            <strong>MEMORIALDAY</strong> for 50% off platform
-                            credits.
+                    <div className="w-full flex justify-center items-center py-3 px-4 text-center bg-amber-500 dark:bg-amber-600">
+                        <span className="text-sm font-medium text-black">
+                            ⚠️ Pixelfy has shut down. Thank you to everyone who used and supported the project!
                         </span>
-                    </div> */}
+                    </div>
                     {children}
                     <Analytics />
                     <Toaster />

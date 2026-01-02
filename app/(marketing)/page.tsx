@@ -10,7 +10,6 @@ import {
     CardTitle,
 } from "@/components/ui/card"
 import { siteConfig } from "@/config/site"
-import { db } from "@/lib/db"
 import { cn } from "@/lib/utils"
 import {
     FileInput,
@@ -20,48 +19,8 @@ import {
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-export const revalidate = 60
 
-async function getImageGenerations() {
-    try {
-        return (await db.outputImage.count()).toLocaleString()
-    } catch (error) {
-        return null
-    }
-}
-
-async function getUserCount() {
-    try {
-        return (await db.user.count()).toLocaleString()
-    } catch (error) {
-        return null
-    }
-}
-
-async function getRecentUsers() {
-    try {
-        return await db.user.findMany({
-            where: {
-                image: {
-                    not: null
-                },
-                name: {
-                    not: null
-                }
-            },
-            take: 5,
-            orderBy: { createdAt: "desc" },
-        })
-    } catch (error) {
-        return null
-    }
-}
-export default async function IndexPage() {
-    const [imageGenerations, userCount, recentUsers] = await Promise.all([
-        getImageGenerations(),
-        getUserCount(),
-        getRecentUsers(),
-    ])
+export default function IndexPage() {
 
     const featuredCardData = [
         {
@@ -133,13 +92,7 @@ export default async function IndexPage() {
                             <div className="mx-auto max-w-7xl px-6 pb-32 pt-12 sm:pt-24 lg:px-8 lg:pt-24">
                                 <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
                                     <div className="relative w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
-                                        {imageGenerations && (
-                                            <Badge variant="secondary">
-                                                {imageGenerations.toLocaleString()} images generated
-                                                and counting!
-                                            </Badge>
-                                        )}
-                                        <h1 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl mt-4">
+                                        <h1 className="text-4xl font-bold tracking-tight text-primary sm:text-6xl">
                                             Generate high-quality pixel art with Artificial
                                             Intelligence
                                         </h1>
@@ -150,49 +103,14 @@ export default async function IndexPage() {
                                         </p>
                                         <div className="mt-10 flex items-center gap-x-6">
                                             <Link
-                                                href="/login"
-                                                className={cn(buttonVariants({ size: "lg" }))}
-                                            >
-                                                Get started
-                                            </Link>
-                                            <Link
                                                 href={siteConfig.links.github}
                                                 target="_blank"
                                                 rel="noreferrer"
-                                                className={cn(
-                                                    buttonVariants({
-                                                        variant: "outline",
-                                                        size: "lg",
-                                                    })
-                                                )}
+                                                className={cn(buttonVariants({ size: "lg" }))}
                                             >
-                                                GitHub
+                                                View on GitHub
                                             </Link>
                                         </div>
-                                        {userCount && (
-                                            <div className="inline-flex items-center text-sm gap-2 mt-8">
-                                                <div className="flex">
-                                                    {recentUsers?.map((user) => (
-                                                        <div key={user.id} className="rounded-full border-2 border-background -ml-2">
-                                                            {user?.image && user?.name && (
-                                                                <Image
-
-                                                                    src={user?.image}
-                                                                    alt={user?.name}
-                                                                    width={24}
-                                                                    height={24}
-                                                                    className="rounded-full"
-                                                                />
-                                                            )}
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                                <span>
-                                                    Loved by {userCount.toLocaleString()} users worldwide!
-                                                </span>
-
-                                            </div>
-                                        )}
                                     </div>
                                     <div className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
                                         <div className="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
